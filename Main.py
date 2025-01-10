@@ -3,7 +3,7 @@ import json
 import os
 import glob
 import subprocess
-
+import shutil 
 # Função para converter o nome das variáveis em formato adequado para C++
 def convert_name(name):
     return name.replace("::", "_").replace(" ", "_").replace("-", "_")
@@ -126,6 +126,24 @@ def generate_files(directory):
 if __name__ == "__main__":
     command = 'cs2-dumper.exe -f hpp -o cs-dump' 
     subprocess.run(command, shell=True)
-    cpp_directory = 'cs-dump'  # Caminho da pasta com os arquivos .hpp
+    # Defina os caminhos das pastas
+    source_folder = "cs-dump"
+    destination_folder = "dump"
+
+    # Lista dos arquivos a serem copiados
+    files_to_copy = ["client_dll.hpp", "buttons.hpp", "offsets.hpp"]
+
+    # Copiar os arquivos
+    for file_name in files_to_copy:
+        source_path = os.path.join(source_folder, file_name)
+        destination_path = os.path.join(destination_folder, file_name)
+
+        # Verifica se o arquivo existe na pasta de origem
+        if os.path.exists(source_path):
+            shutil.copy(source_path, destination_path)  # Copia o arquivo
+            print(f"Arquivo '{file_name}' copiado para {destination_folder}")
+        else:
+            print(f"Arquivo '{file_name}' não encontrado em {source_folder}")
+    cpp_directory = 'dump'  # Caminho da pasta com os arquivos .hpp
     generate_files(cpp_directory)
-    a = input(f"Done.")
+    a = input("Done")
