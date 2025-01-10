@@ -128,3 +128,4 @@ if __name__ == "__main__":
     subprocess.run(command, shell=True)
     cpp_directory = 'cs-dump'  # Caminho da pasta com os arquivos .hpp
     generate_files(cpp_directory)
+    a = input(f"Done.")
