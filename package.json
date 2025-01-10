@@ -1,0 +1,21 @@
+{
+  "name": "cs2-dumper",
+  "version": "1.0.0",
+  "description": "# Atualização Automática do Software Externo de CS2",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dfacco/cs2-dumper.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dfacco/cs2-dumper/issues"
+  },
+  "homepage": "https://github.com/dfacco/cs2-dumper#readme"
+}
