@@ -11,7 +11,7 @@ const readOffsetsFile = () => {
 
 // Criar o servidor HTTP
 const server = http.createServer((req, res) => {
-    if (req.url === '/offsets' && req.method === 'GET') {
+    if (req.url === '/offsets.json' && req.method === 'GET') {
         const offsets = readOffsetsFile();
 
         res.writeHead(200, { 'Content-Type': 'application/json' });
