@@ -2,6 +2,7 @@ import re
 import json
 import os
 import glob
+import subprocess
 
 # Função para converter o nome das variáveis em formato adequado para C++
 def convert_name(name):
@@ -123,5 +124,7 @@ def generate_files(directory):
 
 # Executa o script
 if __name__ == "__main__":
-    cpp_directory = 'A2X Generate Files'  # Caminho da pasta com os arquivos .hpp
+    command = 'cs2-dumper.exe -f hpp -o cs-dump' 
+    subprocess.run(command, shell=True)
+    cpp_directory = 'cs-dump'  # Caminho da pasta com os arquivos .hpp
     generate_files(cpp_directory)
